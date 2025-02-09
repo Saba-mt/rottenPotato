@@ -4,13 +4,45 @@
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<!-- Table to display movie data -->
+<table>
+  <thead>
+    <tr>
+      <th class="<%= sorted_column_class('title') %>">
+        <%= link_to "Title #{sort_indicator('title')}".html_safe, movies_path(sort: 'title', direction: toggle_direction('title', params[:direction])) %>
+      </th>
+      <th class="<%= sorted_column_class('rating') %>">
+        <%= link_to "Rating #{sort_indicator('rating')}".html_safe, movies_path(sort: 'rating', direction: toggle_direction('rating', params[:direction])) %>
+      </th>
+      <th class="<%= sorted_column_class('release_date') %>">
+        <%= link_to "Release Date #{sort_indicator('release_date')}".html_safe, movies_path(sort: 'release_date', direction: toggle_direction('release_date', params[:direction])) %>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date %></td>
+        <td>
+          <%= link_to "Show this movie", movie_path(movie) %> |
+          <%= link_to "Edit", edit_movie_path(movie) %> |
+          <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">Total Movies: <%= @movies.count %></td>
+    </tr>
+  </tfoot>
+</table>
 
-<%= link_to "New movie", new_movie_path %>
+<!-- Link to add a new movie -->
+<p>
+  <%= link_to "New movie", new_movie_path, class: "custom-button" %>
+</p>
+
