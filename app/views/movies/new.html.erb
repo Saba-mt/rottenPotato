@@ -1,11 +1,17 @@
 <% content_for :title, "New movie" %>
 
-<h1>New movie</h1>
+<h1 style="font-family: Arial, sans-serif; color: #2c3e50;">Add a New Movie</h1>
+
+<p style="font-size: 14px; color: #666;">
+  Fill in the details of the movie you want to add to the database. 
+  Please make sure the title is accurate, and the release date follows the format (YYYY-MM-DD).
+</p>
 
 <%= render "form", movie: @movie %>
 
 <br>
 
 <div>
-  <%= link_to "Back to movies", movies_path %>
+  <%= link_to "Back to movies", movies_path, class: "custom-button" %>
 </div>
+
