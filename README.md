@@ -20,7 +20,7 @@ This is a Ruby on Rails application that allows users to create, view, edit, and
 - Seed data added to the app to initialize movies when deployed.
 
 ### **Heroku Link**
-<a href="[https://readme.com/](https://rotten-potato-2155c69cc959.herokuapp.com/movies)" target="_blank">ReadMe</a>
+[Heroku Link](https://rotten-potato-2155c69cc959.herokuapp.com/movies)
 
 ---
 
