@@ -8,3 +8,31 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+ }
+
+ th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+  
+th.sorted-asc {
+    background-color: #cce5ff;
+}
+  
+th.sorted-desc {
+    background-color: #d4edda;
+}
+  
+tfoot {
+    font-weight: bold;
+}
